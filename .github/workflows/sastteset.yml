@@ -1,0 +1,9 @@
+sast:
+  stage: test
+  image: 
+    name: appthreat/sast-scan
+  script:
+    - scan --src ${CI_PROJECT_DIR} --type nodejs --out_dir ${CI_PROJECT_DIR}/reports
+  artifacts:
+    paths:
+      - $CI_PROJECT_DIR/reports/
